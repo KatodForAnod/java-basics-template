@@ -125,7 +125,17 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFibonacci(int number) {
-        return -1L;
+        List<Integer> fibonacciRow = new ArrayList<>();
+        fibonacciRow.add(0);
+        fibonacciRow.add(1);
+
+        for (int i = fibonacciRow.size(); i < number + 1; i++) {
+            int sumOfTwoPreviousDigits = fibonacciRow.get(fibonacciRow.size() - 1) +
+                    fibonacciRow.get(fibonacciRow.size() - 2);
+            fibonacciRow.add(sumOfTwoPreviousDigits);
+        }
+
+        return fibonacciRow.get(number);
     }
 
     /**
