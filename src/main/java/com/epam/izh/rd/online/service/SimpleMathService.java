@@ -155,31 +155,38 @@ public class SimpleMathService implements MathService {
         }
         return values;
     }
-        /**
-         * Метод определяет, является ли заданное число простым.
-         * Простое число - число, которое делится только на 1 и на само себя.
-         * <p>
-         * Например для числа 22 вернется false, а для числа 23 true.
-         */
-        @Override
-        public boolean isPrimary ( int number){
-            if (number < 2)
-                return false;
-            double range = Math.sqrt(number);
-            for (int i = 2; i <= range; i++) {
-                if (number % i == 0)
-                    return false;
-            }
-            return true;
-        }
 
-        /**
-         * Метод возвращает массив, в котором элементы расположены в обратном порядке.
-         * <p>
-         * Например для массива {-1, -3, 4, 8, 5, 22, -5} метод вернет {-5, 22, 5, 8, 4, -3, -1}
-         */
-        @Override
-        public int[] reverseArray ( int[] values){
-            return new int[]{};
+    /**
+     * Метод определяет, является ли заданное число простым.
+     * Простое число - число, которое делится только на 1 и на само себя.
+     * <p>
+     * Например для числа 22 вернется false, а для числа 23 true.
+     */
+    @Override
+    public boolean isPrimary(int number) {
+        if (number < 2)
+            return false;
+        double range = Math.sqrt(number);
+        for (int i = 2; i <= range; i++) {
+            if (number % i == 0)
+                return false;
         }
+        return true;
     }
+
+    /**
+     * Метод возвращает массив, в котором элементы расположены в обратном порядке.
+     * <p>
+     * Например для массива {-1, -3, 4, 8, 5, 22, -5} метод вернет {-5, 22, 5, 8, 4, -3, -1}
+     */
+    @Override
+    public int[] reverseArray(int[] values) {
+        int amountOfSwaps = values.length / 2;
+        for (int i = 0; i < amountOfSwaps; i++) {
+            int tmp = values[i];
+            values[i] = values[values.length - i - 1];
+            values[values.length - i - 1] = tmp;
+        }
+        return values;
+    }
+}
