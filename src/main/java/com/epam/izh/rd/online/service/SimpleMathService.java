@@ -1,5 +1,8 @@
 package com.epam.izh.rd.online.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SimpleMathService implements MathService {
 
     /**
@@ -65,7 +68,7 @@ public class SimpleMathService implements MathService {
     @Override
     public int sum(int[] values) {
         int sumValues = 0;
-        for(int currentValue : values){
+        for (int currentValue : values) {
             sumValues += currentValue;
         }
         return sumValues;
@@ -77,7 +80,20 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] getEvenDigits(int[] values) {
-        return new int[]{};
+        List<Integer> evenValuesList = new ArrayList<>();
+
+        for (int currentValue : values) {
+            if ((currentValue % 2) == 0) {
+                evenValuesList.add(currentValue);
+            }
+        }
+        int[] evenValuesArray = new int[evenValuesList.size()];
+
+        for (int i = 0; i < evenValuesList.size(); i++) {
+            evenValuesArray[i] = evenValuesList.get(i);
+        }
+
+        return evenValuesArray;
     }
 
     /**
