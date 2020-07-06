@@ -163,7 +163,14 @@ public class SimpleMathService implements MathService {
          */
         @Override
         public boolean isPrimary ( int number){
-            return false;
+            if (number < 2)
+                return false;
+            double range = Math.sqrt(number);
+            for (int i = 2; i <= range; i++) {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
         }
 
         /**
