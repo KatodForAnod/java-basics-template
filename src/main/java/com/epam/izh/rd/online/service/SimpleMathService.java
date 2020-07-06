@@ -103,7 +103,14 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFactorial(int initialVal) {
-        return -1L;
+        int calcFactorial = 1;
+        if (initialVal > 0) {
+            for (int i = initialVal; i > 0; i--) {
+                calcFactorial *= i;
+            }
+            return calcFactorial;
+        }
+        return calcFactorial;
     }
 
     /**
