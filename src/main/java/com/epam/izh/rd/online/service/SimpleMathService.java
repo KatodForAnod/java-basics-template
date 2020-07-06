@@ -144,27 +144,35 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int[] sort(int[] values) {
-        return new int[]{};
+        for (int i = values.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (values[j] > values[j + 1]) {
+                    int tmp = values[j];
+                    values[j] = values[j + 1];
+                    values[j + 1] = tmp;
+                }
+            }
+        }
+        return values;
     }
+        /**
+         * Метод определяет, является ли заданное число простым.
+         * Простое число - число, которое делится только на 1 и на само себя.
+         * <p>
+         * Например для числа 22 вернется false, а для числа 23 true.
+         */
+        @Override
+        public boolean isPrimary ( int number){
+            return false;
+        }
 
-    /**
-     * Метод определяет, является ли заданное число простым.
-     * Простое число - число, которое делится только на 1 и на само себя.
-     * <p>
-     * Например для числа 22 вернется false, а для числа 23 true.
-     */
-    @Override
-    public boolean isPrimary(int number) {
-        return false;
+        /**
+         * Метод возвращает массив, в котором элементы расположены в обратном порядке.
+         * <p>
+         * Например для массива {-1, -3, 4, 8, 5, 22, -5} метод вернет {-5, 22, 5, 8, 4, -3, -1}
+         */
+        @Override
+        public int[] reverseArray ( int[] values){
+            return new int[]{};
+        }
     }
-
-    /**
-     * Метод возвращает массив, в котором элементы расположены в обратном порядке.
-     * <p>
-     * Например для массива {-1, -3, 4, 8, 5, 22, -5} метод вернет {-5, 22, 5, 8, 4, -3, -1}
-     */
-    @Override
-    public int[] reverseArray(int[] values) {
-        return new int[]{};
-    }
-}
